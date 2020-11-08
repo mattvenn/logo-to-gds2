@@ -1,8 +1,8 @@
 import gdspy
 from PIL import Image
 
-# each square will be 20 um
-SCALE=20.0e-6 
+# each square will be 1 um
+SCALE=1.0e-6 
 
 # scale the logo down to 40 x 40 squares
 width=40
