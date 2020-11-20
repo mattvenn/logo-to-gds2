@@ -3,7 +3,8 @@ import gdspy
 from PIL import Image
 
 # each square will be 1 um
-SCALE=1.0e-6 
+SCALE=1.0e-6
+PIX_SIZE=20 # in units of scale above
 
 # scale the logo down to 40 x 40 squares
 width=40
@@ -29,7 +30,7 @@ for x in range(width):
         pix = small_im.getpixel((x,y))
         if pix:
             # Create the geometry (a single rectangle) and add it to the cell.
-            rect = gdspy.Rectangle((x, height-y), (x+1, height-y+1), **skywater_metal1)
+            rect = gdspy.Rectangle((x * PIX_SIZE, (height-y) * PIX_SIZE), (x * PIX_SIZE + PIX_SIZE, (height-y) * PIX_SIZE + PIX_SIZE), **skywater_metal5)
             cell.add(rect)
 
 # Save the library in a file called 'first.gds'.
