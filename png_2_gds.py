@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import gdspy
 from PIL import Image
+from layers import *
+import sys
 
 # each square will be 1 um
 SCALE=1.0e-6
@@ -10,13 +12,7 @@ PIX_SIZE=20 # in units of scale above
 width=40
 height=40
 
-skywater_metal1 = {"layer": 68,  "datatype": 20 }
-skywater_metal2 = {"layer": 69,  "datatype": 20 }
-skywater_metal3 = {"layer": 70,  "datatype": 20 }
-skywater_metal4 = {"layer": 71,  "datatype": 20 }
-skywater_metal5 = {"layer": 72,  "datatype": 20 }
-
-im = Image.open("logo.png")
+im = Image.open(sys.argv[1])
 small_im = im.resize((width,height),resample=Image.BILINEAR)
 
 # The GDSII file is called a library, which contains multiple cells.
@@ -30,8 +26,7 @@ for x in range(width):
         pix = small_im.getpixel((x,y))
         if pix:
             # Create the geometry (a single rectangle) and add it to the cell.
-            rect = gdspy.Rectangle((x * PIX_SIZE, (height-y) * PIX_SIZE), (x * PIX_SIZE + PIX_SIZE, (height-y) * PIX_SIZE + PIX_SIZE), **skywater_metal5)
+            rect = gdspy.Rectangle((x * PIX_SIZE, (height-y) * PIX_SIZE), (x * PIX_SIZE + PIX_SIZE, (height-y) * PIX_SIZE + PIX_SIZE), **skywater_metal4)
             cell.add(rect)
 
-# Save the library in a file called 'first.gds'.
-lib.write_gds('logo.gds')
+lib.write_gds(sys.argv[2])
