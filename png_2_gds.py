@@ -9,8 +9,8 @@ SCALE=1.0e-6
 PIX_SIZE=20 # in units of scale above
 
 # scale the logo down to 40 x 40 squares
-width=40
-height=40
+width=75
+height=15
 
 im = Image.open(sys.argv[1])
 small_im = im.resize((width,height),resample=Image.BILINEAR)

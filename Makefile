@@ -1,4 +1,7 @@
-all: logo_svg.lef logo_svg.gds logo_png.lef logo_png.gds
+all: logo_svg.lef logo_svg.gds logo_png.lef logo_png.gds embo.gds
+
+embo.gds: png_2_gds.py embo.png
+	python3 $^ $@
 
 logo_svg.gds: svg_2_gds.py logo.svg
 	python3 $^ $@
