@@ -5,7 +5,7 @@ from layers import *
 import sys
 
 # each square will be 1 um
-SCALE=1.0e-6
+SCALE=100.0e-9
 # min area metal 5 is 4mm
 PIX_SIZE=2.0 # in units of scale above
 # min space is 1.6
@@ -18,9 +18,8 @@ height=15
 
 im = Image.open(sys.argv[1])
 small_im = im.resize((width,height),resample=Image.BILINEAR)
-small_im = im.convert('1') # convert image to black and white
-
-width, height = im.size
+small_im = small_im.convert('1') # convert image to black and white
+width, height = small_im.size
 
 # The GDSII file is called a library, which contains multiple cells.
 lib = gdspy.GdsLibrary(unit=SCALE)
@@ -31,7 +30,7 @@ cell = lib.new_cell('LOGO')
 for x in range(width):
     for y in range(height):
         pix = small_im.getpixel((x,y))
-        print(x, y, pix)
+#        print(x, y, pix)
         if pix:
             # Create the geometry (a single rectangle) and add it to the cell.
             rect = gdspy.Rectangle(
