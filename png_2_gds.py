@@ -13,8 +13,8 @@ PIX_SPACE=PIX_SIZE # + 1.6
 PIX_GAP = (PIX_SPACE - PIX_SIZE) / 2
 
 # scale the logo down to 40 x 40 squares
-width=50
-height=50
+width=75
+height=15
 
 im = Image.open(sys.argv[1])
 small_im = im.resize((width,height),resample=Image.BILINEAR)

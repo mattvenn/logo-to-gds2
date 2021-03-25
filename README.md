@@ -9,6 +9,7 @@ turns SVGs or PNGs into GDS2 and LEF files for use on top metal of ASICs for art
 ## png
 
 * find/make a suitable png. You will have to work on it to make the final gds be DRC clean.
+* png needs to be indexed, 2 colours. white -> gds.
 * choose scaling factor (set in program)
 
 ## svg
