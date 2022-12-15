@@ -17,3 +17,10 @@ turns SVGs or PNGs into GDS2 and LEF files for use on top metal of ASICs for art
 * set inkscape to units px
 * make a 1 px grid
 * only use 90 or 45 degree angles
+
+# setup
+
+Last tested with MPW8 tagged tools and Magic 8.3 revision 331.
+
+To install MPW8 PDK, follow instructions here: https://github.com/efabless/caravel_user_project/blob/main/docs/source/index.rst#quickstart
+
