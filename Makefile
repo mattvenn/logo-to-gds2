@@ -16,12 +16,12 @@ view_logo_png: logo_png.gds load.tcl
 	magic -rcfile $(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.magicrc $^
 
 logo_svg.lef: logo_svg.gds save_svg_lef.tcl
-	magic -rcfile $(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.magicrc $^
+	magic -noc -dnull -rcfile $(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.magicrc $^
 
 logo_png.lef: logo_svg.gds save_png_lef.tcl
-	magic -rcfile $(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.magicrc $^
+	magic -noc -dnull -rcfile $(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.magicrc $^
 
 clean: 
-	rm logo.gds logo.lef
+	rm *gds *lef
 
 .PHONY: view_logo_svg view_logo_png
